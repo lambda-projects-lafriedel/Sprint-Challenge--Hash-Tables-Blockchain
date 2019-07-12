@@ -22,19 +22,19 @@ def get_indices_of_item_weights(weights, length, limit):
     # for each item in weights array, insert it into the hash table. key = value from array, value = its index from weights array
     if length > 1:
 
+        # insert each item to the hash table
         for i in range(len(weights)):
-            # (4, 0) (6,1) (10,2) (15,3) (16,4)
             hash_table_insert(ht, weights[i], i)
-            # subtract length - weights[i] (21 - 4 = 17)
         
         for i in range(len(weights)):
+            # subtract length - weights[i]
             diff = limit - weights[i]
-            # attempt to retrieve item from hash_table with key 17
+            # attempt to retrieve item from hash_table with difference as key
             match_index = hash_table_retrieve(ht, diff)
 
             # if exists, the value is returned which is the list index
             if match_index is not None:
-                print("COUPLE", weights[match_index], weights[i])
+                # send indices to print_answer in correct order
                 if match_index >= i:
                     return print_answer([str(match_index), str(i)])
                 else:
@@ -44,9 +44,9 @@ def get_indices_of_item_weights(weights, length, limit):
 
 
 def print_answer(answer):
-    print("ANSWER", answer)
     if answer is not None:
         print(str(answer[0] + " " + answer[1]))
         return [int(answer[0]), int(answer[1])]
     else:
-        print("None inside print answer")
+        print("None")
+        return None
