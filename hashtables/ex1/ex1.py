@@ -9,24 +9,12 @@ from hashtables import (HashTable,
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
-    """
-    YOUR CODE HERE
-    # Example input: get_indices_of_item_weights([4,6,10,15,16], 5, 21)
-    # Example output: [3,1] (Indices of the weights 15 and 6 -- which equals limit of 21)
-    # Find two items whose sum of weights equals the param 'limit' and return their indices
-
-    # Higher valued index from weights list should be placed in index 0 and lower valued index from weights list placed in index 1
-    # Return a call to print_answer with the two indices
-    """
-
-    # for each item in weights array, insert it into the hash table. key = value from array, value = its index from weights array
     if length > 1:
-
         # insert each item to the hash table
-        for i in range(len(weights)):
+        for i in range(length):
             hash_table_insert(ht, weights[i], i)
         
-        for i in range(len(weights)):
+        for i in range(length):
             # subtract length - weights[i]
             diff = limit - weights[i]
             # attempt to retrieve item from hash_table with difference as key
