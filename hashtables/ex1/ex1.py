@@ -19,7 +19,6 @@ def get_indices_of_item_weights(weights, length, limit):
             diff = limit - weights[i]
             # attempt to retrieve item from hash_table with difference as key
             match_index = hash_table_retrieve(ht, diff)
-
             # if exists, the value is returned which is the list index
             if match_index is not None:
                 # send indices to print_answer in correct order
